@@ -114,10 +114,6 @@ int main(int argc, char** argv)
 
         std::vector<cv::Mat> outs;
         net.forward(outs, getOutputsNames(net));
-        /*//-------------Test------------------
-        std::cout << ": " << outs[0].size() << std::endl;
-        std::cout << ": " << outs[1].size() << std::endl;
-        std::cout << ": " << outs[2].size() << std::endl; return 0;*/
 
         postprocess(frame, outs);
 
@@ -172,11 +168,6 @@ void postprocess(cv::Mat& frame, const std::vector<cv::Mat>& outs)
             }
         }
     }
-
-    /*//--------------test------------------
-    std::cout << boxes.size() << std::endl;
-    std::cout << classIds.size() << std::endl;
-    std::cout << confidences.size() << std::endl;*/
 
     std::vector<int> indices;
     cv::dnn::NMSBoxes(boxes, confidences, confThreshold, nmsThreshold, indices);
