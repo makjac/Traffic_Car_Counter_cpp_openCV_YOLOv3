@@ -42,7 +42,7 @@ int main(int argc, char **argv)
         classes.push_back(line);
 
     std::string modelConfiguration = "yolo/yoloc.cfg";
-    // Note: The 'yolov3_.weights' file is not included in the repository
+    // Note: The 'yolov3_.weights' file is included in the repository but is compressed in a RAR archive. Please extract the weights from the RAR file before running the program.
     std::string modelWeights = "yolo/weights/yolov3_.weights";
 
     cv::dnn::Net net = cv::dnn::readNetFromDarknet(modelConfiguration, modelWeights);
